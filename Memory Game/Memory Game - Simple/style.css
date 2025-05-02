@@ -1,0 +1,88 @@
+body {
+    background: url("bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+  .container {
+    background-color: #ffffff44;
+    color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    width: 100%;
+  }
+  .card {
+    width: 100px;
+    padding-top: 100%;
+    position: relative;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .card.open::after {
+    content: attr(data-planet);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+  }
+  .hidden {
+    background: linear-gradient(135deg, rgb(76, 76, 212), purple);
+  }
+  .open {
+    background-color: #03287c;
+  }
+  .matched {
+    background-color: rgb(1, 99, 1) !important;
+  }
+  .mismatched {
+    background-color: rgb(167, 5, 5) !important;
+  }
+  .difficulty-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .timer {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  .message-screen {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    .card {
+      width: 80px;
+      padding: top 80px;
+      font-size: 20px;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+  }
+}
